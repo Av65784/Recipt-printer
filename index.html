@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receipt Printer - Anti-Procrastination</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3QgeD0iOCIgeT0iOCIgd2lkdGg9IjE2IiBoZWlnaHQ9IjEwIiByeD0iMiIgZmlsbD0iI0ZGOThCMCIvPgo8cGF0aCBkPSJNMTIgMjBIMTIuNVYxOUgxMiAxOXYxSDEyVjIwWiIgZmlsbD0iI0ZGRiIvPgo8dGV4dCB4PSIxNiIgeT0iMjYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJKZXRCcmFpbnNNb25vLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMCIgZmlsbD0iIzMzMyI+UHJpbnQ8L3RleHQ+Cjwvc3ZnPgo=">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app">
+        <div class="main-board" id="board">
+            <div class="column" data-col="0"><h4>📋 To Do</h4></div>
+            <div class="column" data-col="1"><h4>⚡ Doing</h4></div>
+            <div class="column" data-col="2"><h4>✅ Check</h4></div>
+            <div class="column" data-col="3"><h4>🎯 Done</h4></div>
+        </div>
+
+        <aside class="sidebar">
+            <h1>🖨️ Receipt Printer</h1>
+            
+            <div class="instructions">
+                Enter your task details (10+ characters) and press <b>Print</b>.
+            </div>
+
+            <div class="creator">
+                <textarea id="taskInput" class="task-input" placeholder="BIOLOGY REVIEW&#10;• Read Cell Structure (20m)&#10;• Draw diagrams"></textarea>
+                <button id="printBtn" class="print-btn">🖨️ PRINT WIDE RECEIPT</button>
+            </div>
+
+            <div class="printer-container">
+                <div class="printer" id="printer">
+                    <div class="printer-body"></div>
+                    <div class="paper-slot"></div>
+                    <div class="paper-roll"></div>
+                    <div class="power-led"></div>
+                    <div class="printing-paper" id="printingPaper"></div>
+                </div>
+                <div class="paper-tray"></div>
+            </div>
+
+            <div class="progress-section">
+                <div class="progress-jar">
+                    <div class="jar-fill" id="jarFill"></div>
+                </div>
+                <div class="stats">
+                    Printed: <span id="printedCount">0</span><br>
+                    Completed: <span id="crumpledCount">0</span>
+                </div>
+                <button id="resetBtn" class="reset-btn">🔄 Reset Day</button>
+            </div>
+        </aside>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

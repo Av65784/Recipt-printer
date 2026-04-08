@@ -1,0 +1,18 @@
+# 🖨️ Receipt Printer - Anti-Procrastination
+
+A visual Kanban-style productivity tool that turns your tasks into "physical" receipts. Print your to-do list, move them through the workflow, and fill your "Done Jar" as you complete work.
+
+## ✨ Features
+- **Realistic Printer Animation:** Visual feedback when "printing" new tasks.
+- **Drag-and-Drop Workflow:** Move receipts from *To Do* to *Done*.
+- **Progress Tracking:** A visual jar that fills up as you complete tasks.
+- **Wide Formatting:** Designed to handle detailed sub-tasks and long descriptions.
+
+## 🚀 How to Use
+1. **Input:** Type your task in the textarea. Use `Ctrl + Enter` or the Print button.
+2. **Process:** Drag the receipt through the columns: *To Do* → *Doing* → *Check* → *Done*.
+3. **Finish:** When a task hits the **Done** column, it "crumples" and fills your progress jar.
+4. **Reset:** Use the "Reset Day" button to clear the board for a new session.
+
+## 🛠️ Installation
+Simply download the three files (`index.html`, `style.css`, `script.js`) into the same folder and open `index.html` in any modern web browser.

@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+    --primary: #ff9500;
+    --success: #10b981;
+    --danger: #ef4444;
+    --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    --shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+* { box-sizing: border-box; }
+body { 
+    font-family: 'JetBrains Mono', monospace; 
+    background: var(--bg-gradient); 
+    margin: 0; padding: 20px; user-select: none;
+    height: 100vh;
+}
+
+.app { max-width: 1800px; margin: auto; display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; height: 95vh; }
+
+/* Board Styles */
+.main-board { grid-column: 1 / 5; display: flex; gap: 15px; overflow-x: auto; padding-bottom: 10px; }
+.column { 
+    flex: 1; min-width: 260px; background: white; border: 3px solid #e1e8ed; 
+    border-radius: 16px; padding: 15px; min-height: 500px; box-shadow: var(--shadow);
+}
+.column h4 { text-align: center; color: #5a6c7d; margin-top: 0; }
+
+/* Sidebar & Input */
+.sidebar { grid-column: 5 / 6; background: white; border-radius: 20px; padding: 20px; box-shadow: var(--shadow); display: flex; flex-direction: column; overflow-y: auto; }
+.task-input { 
+    width: 100%; height: 150px; padding: 15px; margin-bottom: 10px; border: 2px dashed #cbd2dc; 
+    border-radius: 12px; font-family: inherit; resize: none; 
+}
+.print-btn { 
+    background: var(--primary); color: white; padding: 15px; border: none; border-radius: 12px; 
+    cursor: pointer; font-weight: 600; width: 100%; transition: 0.2s;
+}
+.print-btn:hover { transform: translateY(-2px); filter: brightness(1.1); }
+
+/* Printer Visuals */
+.printer-container { position: relative; width: 100%; height: 140px; margin: 20px 0; }
+.printer { 
+    position: relative; width: 100%; height: 100px; 
+    background: #1a202c; border-radius: 15px; transition: 0.3s;
+}
+.printer-body { position: absolute; width: 90%; height: 70px; left: 5%; top: 10px; background: #2d3748; border-radius: 10px; }
+.paper-slot { position: absolute; left: 20%; top: -5px; width: 60%; height: 12px; background: #4a5568; border-radius: 10px; }
+.power-led { position: absolute; right: 10%; top: 20px; width: 8px; height: 8px; background: var(--success); border-radius: 50%; box-shadow: 0 0 8px var(--success); }
+
+/* Printing Animation */
+.printing-paper {
+    position: absolute; left: 25%; top: 0; width: 50%; height: 0;
+    background: white; border: 1px solid #ddd; visibility: hidden;
+}
+.printer.printing .printing-paper { animation: printAction 2s forwards; visibility: visible; }
+
+@keyframes printAction {
+    0% { height: 0; transform: translateY(10px); }
+    100% { height: 40px; transform: translateY(-20px); }
+}
+
+/* Receipt Cards */
+.receipt { 
+    background: #fff; border: 1px solid #ddd; padding: 15px; margin: 10px 0; 
+    font-size: 13px; cursor: grab; box-shadow: 2px 4px 10px rgba(0,0,0,0.1);
+    animation: ejectSide 0.8s ease-out;
+}
+.receipt.completed { opacity: 0.5; background: #d1fae5; transform: scale(0.9) rotate(-2deg); border-color: var(--success); }
+
+@keyframes ejectSide {
+    0% { transform: translateY(20px) scale(0.5); opacity: 0; }
+    100% { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+/* Progress Jar */
+.progress-jar { width: 80px; height: 80px; border: 4px solid #d1d5db; border-radius: 50%; margin: 10px auto; overflow: hidden; position: relative; }
+.jar-fill { position: absolute; bottom: 0; width: 100%; background: var(--success); height: 0%; transition: 0.5s; }
+
+.reset-btn { margin-top: 15px; background: var(--danger); color: white; border: none; padding: 10px; border-radius: 8px; cursor: pointer; width: 100%; }
+
+@media (max-width: 1200px) { .app { display: flex; flex-direction: column; } }
